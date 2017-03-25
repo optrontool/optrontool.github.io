@@ -28,6 +28,15 @@
 		    <input type="file" id="ucf-selector"><br>
 		    <h3>Verilog File</h3>
 		    <input type="file" id="verilog-selector"><br>
+		    <details>
+			<summary id="adv-options">Advanced Options</summary>
+			<h3>Job Id</h3>
+			<input type="text" autocomplete="off" autocorrect="off"
+			       autocapitalize="off" spellcheck="false" id="jobid">
+			<h3>Results file name</h3>
+			<input type="text" autocomplete="off" autocorrect="off"
+			       autocapitalize="off" spellcheck="false" id="results-fname">
+		    </details>
 		    <input type="button" id="submit-button" onclick="onSubmitPressed()" value="Submit">
 		    <div class="loader" id="loader"></div>
 		</div>

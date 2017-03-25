@@ -40,6 +40,12 @@
     display: none;
 }
 
+#adv-options {
+    margin-top: 15px;
+    font-family: "MuseoSlab700";
+    font-size: 14px;
+}
+
 .modal {
     display: none; 
     position: fixed;
