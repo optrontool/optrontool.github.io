@@ -25,6 +25,25 @@ h3 {
     line-height: 7px;
 }
 
+input[type=button] {
+    cursor: pointer;
+    background: black;
+    font-family: "MuseoSlab700";
+    color: rgb(255, 255, 255);
+    font-size: 24px;
+    padding-top: 6px;
+    border: 3px solid black;
+    transition: all 0.1s linear;
+}
+
+input[type=button]:active {
+    transform: scale(0.95);
+}
+
+#submit-button {
+    margin-top: 32px;
+}
+
 table {
     cursor: pointer;
     color: white;
@@ -42,6 +61,8 @@ html, body {
 #inputs {
     position: absolute;
     margin-top: 100px;
+    border: 3px solid black;
+    padding: 15px;
 }
 
 #main {
