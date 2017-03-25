@@ -46,6 +46,7 @@ function onSubmitPressed() {
     g_http.send(JSON.stringify({
 	name: document.getElementById("cello-username").value,
 	password: document.getElementById("cello-password").value,
+	jobid: document.getElementById("jobid").value,
 	ucf: g_ucf,
 	verilog: g_verilog
     }));
