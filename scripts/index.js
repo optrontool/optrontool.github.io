@@ -28,7 +28,7 @@ function onSubmitPressed() {
     document.getElementById("submit-button").disabled = true;
     g_http = new XMLHttpRequest();
     g_http.open("POST", OptronServerLoc, true);
-    //g_http.setRequestHeader("Content-type", "application/json");
+    g_http.setRequestHeader("Content-type", "application/json");
     g_http.onreadystatechange = function() {
 	if (this.readyState == 4 && this.status == 200) {
 	    resultsJSON = JSON.parse(g_http.responseText);
