@@ -29,11 +29,15 @@ function onSubmitPressed() {
     g_http.onreadystatechange = function() {
 	if (this.readyState == 4 && this.status == 200) {
 	    resultsJSON = JSON.parse(g_http.responseText);
-	    document.getElementById("modal-msg").innerHTML =
-		"Initial score: " + resultsJSON["initial_score"] + "<br>" +
-		"Optimized score: " + resultsJSON["optimized_score"];
-	    document.getElementById("modalBtn").click();
-	    g_result_ucf = resultsJSON["ucf"];
+	    if (resultsJSON.hasOwnProperty("Error")) {
+		document.getElementById("modal-msg").innerHTML = resultsJSON["Error"];
+	    } else {
+		document.getElementById("modal-msg").innerHTML =
+		    "Initial score: " + resultsJSON["initial_score"] + "<br>" +
+		    "Optimized score: " + resultsJSON["optimized_score"];
+		document.getElementById("modalBtn").click();
+		g_result_ucf = resultsJSON["ucf"];
+	    }
 	}
 	document.getElementById("submit-button").style.display = "";
 	document.getElementById("loader").style.display = "none";
