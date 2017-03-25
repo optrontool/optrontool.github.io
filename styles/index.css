@@ -1,66 +1,7 @@
-@font-face {
-    font-family: "MuseoSlab500";
-    src: url("MuseoSlab500.ttf");
-}
-
-@font-face {
-    font-family: "MuseoSlab700";
-    src: url("MuseoSlab700.ttf");
-}
-
-h1 {
-    font-family: "MuseoSlab700";
-    font-size: 62px;
-    line-height: 16px;
-}
-
-h2 {
-    font-family: "MuseoSlab500";
-    font-size: 36px;
-}
-
-h3 {
-    font-family: "MuseoSlab500";
-    font-size: 14px;
-    line-height: 7px;
-}
-
-p {
-    font-family: "MuseoSlab500";
-    font-size: 14px;
-}
-
-input[type=button] {
-    cursor: pointer;
-    background: black;
-    font-family: "MuseoSlab700";
-    color: rgb(255, 255, 255);
-    font-size: 24px;
-    padding-top: 6px;
-    border: 3px solid black;
-    transition: all 0.1s linear;
-}
-
-input[type=button]:active {
-    transform: scale(0.95);
-}
+@import url("Optron.css");
 
 #submit-button {
     margin-top: 32px;
-}
-
-table {
-    cursor: pointer;
-    color: white;
-    background: black;
-    font-family: "MuseoSlab500";
-    height: 30px;
-    width: 100%;
-}
-
-html, body {
-    margin: 0;
-    height: 100%;
 }
 
 #inputs {
@@ -132,4 +73,8 @@ html, body {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+#loader {
+    margin-top: 32px;
 }

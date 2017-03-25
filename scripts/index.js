@@ -21,11 +21,8 @@ function onSubmitPressed() {
 	window.alert("Missing field!");
 	return;
     }
-    if (document.getElementById("submit-button").disabled == true) {
-	window.alert("Please wait...");
-	return;
-    }
-    document.getElementById("submit-button").disabled = true;
+    document.getElementById("submit-button").style.display = "none";
+    document.getElementById("loader").style.display = "";
     g_http = new XMLHttpRequest();
     g_http.open("POST", OptronServerLoc, true);
     g_http.setRequestHeader("Content-type", "application/json");
@@ -38,7 +35,8 @@ function onSubmitPressed() {
 	    document.getElementById("modalBtn").click();
 	    g_result_ucf = resultsJSON["ucf"];
 	}
-	document.getElementById("submit-button").disabled = false;
+	document.getElementById("submit-button").style.display = "";
+	document.getElementById("loader").style.display = "none";
     }
     g_http.send(JSON.stringify({
 	name: document.getElementById("cello-username").value,
@@ -48,12 +46,19 @@ function onSubmitPressed() {
     }));
 }
 
+document.getElementById("loader").style.display = "none";
+
 function handleUCFUpload(evt) {
     var f = evt.target.files[0]; 
     if (f) {
 	var r = new FileReader();
-	r.onload = function(e) { 
-	    g_ucf = e.target.result;
+	r.onload = function(e) {
+	    try {
+		g_ucf = e.target.result;
+	    } catch(err) {
+		window.alert(err);
+		return;
+	    }
 	}
 	r.readAsText(f);
     }
@@ -99,4 +104,12 @@ window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
+}
+
+function onHomePressed() {
+    window.location.href = "index.html";
+}
+
+function onAboutPressed() {
+    window.location.href = "about.html";
 }

@@ -1,0 +1,85 @@
+@font-face {
+    font-family: "MuseoSlab500";
+    src: url("MuseoSlab500.ttf");
+}
+
+@font-face {
+    font-family: "MuseoSlab700";
+    src: url("MuseoSlab700.ttf");
+}
+
+h1 {
+    font-family: "MuseoSlab700";
+    font-size: 62px;
+    line-height: 16px;
+}
+
+h2 {
+    font-family: "MuseoSlab500";
+    font-size: 36px;
+}
+
+h3 {
+    font-family: "MuseoSlab500";
+    font-size: 14px;
+    line-height: 7px;
+}
+
+p {
+    font-family: "MuseoSlab500";
+    font-size: 14px;
+}
+
+input[type=button] {
+    cursor: pointer;
+    background: black;
+    font-family: "MuseoSlab700";
+    color: rgb(255, 255, 255);
+    font-size: 24px;
+    padding-top: 6px;
+    border: 3px solid black;
+    transition: all 0.1s linear;
+}
+
+input[type=button]:disabled {
+    background: rgb(128, 128, 128);
+    border: 3px solid rgb(128, 128, 128);
+}
+
+input[type=button]:active {
+    transform: scale(0.95);
+}
+
+table {
+    cursor: pointer;
+    color: white;
+    background: black;
+    font-family: "MuseoSlab500";
+    height: 30px;
+    width: 100%;
+}
+
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
+.loader {
+    border: 8px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid black;
+    width: 50px;
+    height: 50px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

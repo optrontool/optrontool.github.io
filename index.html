@@ -6,8 +6,8 @@
     <body>
 	<table>
 	    <tr>
-		<th>Home</th>
-		<th>About</th>
+		<th onclick="onHomePressed()">Home</th>
+		<th onclick="onAboutPressed()">About</th>
 	    </tr>
 	</table>
 	<div id="main">
@@ -29,6 +29,7 @@
 		    <h3>Verilog File</h3>
 		    <input type="file" id="verilog-selector"><br>
 		    <input type="button" id="submit-button" onclick="onSubmitPressed()" value="Submit">
+		    <div class="loader" id="loader"></div>
 		</div>
 	    </div>
 	    <div id="optron-img">
