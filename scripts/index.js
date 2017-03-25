@@ -6,6 +6,13 @@ var g_ucf = null;
 
 var g_verilog = null;
 
+var g_result_ucf = null;
+
+if (!window.FileReader) {
+    window.alert("Sorry, your browser is not compatible with Optron ;-(");
+    throw 42;
+}
+
 function onSubmitPressed() {
     var unameField = document.getElementById("cello-username");
     var passwdField = document.getElementById("cello-password");
@@ -24,7 +31,12 @@ function onSubmitPressed() {
     g_http.setRequestHeader("Content-type", "application/json");
     g_http.onreadystatechange = function() {
 	if (this.readyState == 4 && this.status == 200) {
-            alert(g_http.responseText);
+	    resultsJSON = JSON.parse(g_http.responseText);
+	    document.getElementById("modal-msg").innerHTML =
+		"Initial score: " + resultsJSON["initial_score"] + "<br>" +
+		"Optimized score: " + resultsJSON["optimized_score"];
+	    document.getElementById("modalBtn").click();
+	    g_result_ucf = resultsJSON["ucf"];
 	}
 	document.getElementById("submit-button").disabled = false;
     }
@@ -34,10 +46,6 @@ function onSubmitPressed() {
 	ucf: g_ucf,
 	verilog: g_verilog
     }));
-}
-
-if (!window.FileReader) {
-    window.alert("Your browser is not compatible with Optron ;-(");
 }
 
 function handleUCFUpload(evt) {
@@ -65,3 +73,30 @@ function handleVerilogUpload(evt) {
 document.getElementById("ucf-selector").addEventListener("change", handleUCFUpload, false);
 
 document.getElementById("verilog-selector").addEventListener("change", handleVerilogUpload, false);
+
+function onDownloadUCFPressed() {
+    if (g_result_ucf) {
+	var wnd = window.open("about:blank", "", "_blank");
+	wnd.document.write(g_result_ucf);
+    }
+}
+
+var modal = document.getElementById('modal');
+
+var btn = document.getElementById("modalBtn");
+
+var span = document.getElementsByClassName("close")[0];
+
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
