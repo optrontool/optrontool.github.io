@@ -31,6 +31,7 @@ function onSubmitPressed() {
 	    resultsJSON = JSON.parse(g_http.responseText);
 	    if (resultsJSON.hasOwnProperty("Error")) {
 		document.getElementById("modal-msg").innerHTML = resultsJSON["Error"];
+		document.getElementById("modalBtn").click();
 	    } else {
 		document.getElementById("modal-msg").innerHTML =
 		    "Initial score: " + resultsJSON["initial_score"] + "<br>" +
