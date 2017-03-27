@@ -61,6 +61,11 @@ function handleUCFUpload(evt) {
 	r.onload = function(e) {
 	    try {
 		g_ucf = e.target.result;
+		try {
+		    JSON.parse(g_ucf);
+		} catch(err) {
+		    window.alert("Warning: the file you selected is not a valid JSON");
+		}
 	    } catch(err) {
 		window.alert(err);
 		return;
